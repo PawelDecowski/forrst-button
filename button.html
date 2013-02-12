@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #the-button {
+            font-family: 'Helvetica Neue', Arial, sans-serif;;
+            font-size: 11px;
+            line-height: 17px;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        #follow {
+            background-color: #dedede;
+            background: url(/forrst-logo.png) 5px center no-repeat;
+            background: url(/forrst-logo.png) 5px center no-repeat, -webkit-linear-gradient(#fff, #dedede);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #333;
+            display: inline-block;
+            float: left;
+            font-weight: bold;
+            padding: 1px 3px 0 18px;
+            text-decoration: none;
+            text-shadow: 0 1px #fff;
+        }
+
+        #follow:hover {
+            -background-color: #223f17;
+            -background: url(/forrst-logo.png) 5px center no-repeat, -webkit-linear-gradient(#335028, #223f17);
+            -border-color: #223f17;
+            border-color: #bbb;
+            -color: #fff;
+        }
+
+        #counter {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            color: #333;
+            float: left;
+            margin-left: 6px;
+            padding: 1px 3px 0;
+            position: relative;
+            text-decoration: none;
+        }
+
+        #counter:hover {
+            text-decoration: underline;
+        }
+
+        #counter::before {
+            border: 5px solid transparent;
+            border-right-color: #bbb;
+            content: '';
+            left: -10px;
+            height: 0;
+            position: absolute;
+            top: 4px;
+            width: 0;
+        }
+
+        #counter::after {
+            border: 5px solid transparent;
+            border-right-color: #fff;
+            content: '';
+            left: -9px;
+            height: 0;
+            position: absolute;
+            top: 4px;
+            width: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="the-button"><a id="follow" href="http://forrst.com/people/PawelDecowski">Follow <span id="who"></a> <a id="counter" href="http://forrst.com/people/PawelDecowski/followers"></a></div>
+    <script>
+        // if (window.self == window.top) {
+        //     window.location.replace('/');
+        // }
+
+        if (!window.parent) {
+            alert('Ty chujcu!');
+        }
+
+        Object.prototype.get = function(key)
+        {
+            if (typeof this[key] == 'undefined') {
+                return null;
+            }
+
+            return this[key];
+        }
+
+        Number.prototype.human_readable = function() {
+            var suffixes = ['', 'K', 'M'],
+                suffix_index = 0;
+                number = this;
+
+            while (number > 999) {
+                suffix_index++;
+                number /= 1000;
+            }
+
+            number = Math.floor(number * 10) / 10;
+
+            return number + suffixes[suffix_index];
+        }
+
+        function jsonp(url)
+        {
+            var body = document.getElementsByTagName('body')[0];
+
+            var script = document.createElement('script');
+            script.src = url;
+
+            body.appendChild(script);
+        }
+
+        function parse_url()
+        {
+            var re = /\/([a-z0-9]+)\/?(?:\?(.+))?$/i;
+
+            var matches = window.location.href.match(re);
+
+            if (matches) {
+                var username = matches[1];
+                var query_string = matches[2];
+            }
+
+            if (typeof query_string !== 'undefined') {
+
+                var query_string = query_string.split(/&/);
+
+                var get_variables = {};
+
+                for (i = 0, l = query_string.length; i < l; i++) {
+                    var kv_pair = query_string[i].split(/=/);
+
+                    get_variables[kv_pair[0]] = typeof kv_pair[1] == 'undefined' ? null : decodeURIComponent(kv_pair[1])
+                }
+            } else {
+                get_variables = {}
+            }
+
+            return {
+                username: username,
+                params: get_variables
+            }
+        }
+
+        function callback(result)
+        {
+            if (request.params.get('count') !== 'false') {
+                document.getElementById('counter').innerHTML = parseInt(result.resp.followers).human_readable() + ' followers';
+            } else {
+                document.getElementById('counter').remove()
+            }
+            document.getElementById('who').innerHTML = '@' + result.resp.username;
+            document.getElementById('the-button').style.visibility = 'visible';
+        }
+
+        request = parse_url();
+        jsonp('https://forrst.com/api/v2/users/info?username=' + request.username + '&callback=callback');
+    </script>
+</body>
+</html>
