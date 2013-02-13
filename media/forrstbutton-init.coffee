@@ -1,6 +1,6 @@
 update_code = ->
     username = if $('#username').val().length then $('#username').val() else 'forrst'
-    url = window.location.origin + '/' + username
+    url = 'http://' + window.location.hostname + '/' + username
 
     if $('#count').is(':not(:checked)')
         url += '?count=false'
