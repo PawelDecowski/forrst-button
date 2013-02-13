@@ -15,7 +15,7 @@ timeout = null
 
 $ ->
     $('input:checkbox').on 'change', update_code
-    $('input:text').on 'blur change', update_code
+    $('input:text').on 'change', update_code
     $('input:text').on 'input keyup', ->
         clearTimeout timeout
 
