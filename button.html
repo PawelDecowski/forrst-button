@@ -79,9 +79,9 @@
 <body>
     <div id="the-button"><a id="follow" target="_top">Follow <span id="who"></a> <a id="counter" target="_top"></a></div>
     <script>
-        // if (window.self == window.top) {
-        //     window.location.replace('/');
-        // }
+        if (window.self == window.top) {
+            window.location.replace('/');
+        }
 
         if (!window.parent) {
             alert('Ty chujcu!');
