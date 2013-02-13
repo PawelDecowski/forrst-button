@@ -1,0 +1,259 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background-color: #eae5e0;
+  color: #444;
+  font-family: "source-sans-pro", "Helverica Neue", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+a {
+  color: #082;
+}
+p {
+  margin-bottom: 24px;
+}
+p small {
+  color: #888;
+  font-size: 14px;
+}
+header {
+  text-align: center;
+}
+h1 {
+  background: url(/media/forrst-logo-48.png) center top no-repeat;
+  color: #4e7055;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 48px;
+  margin: 48px 0 24px;
+  padding-top: 48px;
+  text-align: center;
+}
+h1 small {
+  color: #bab5b0;
+  display: block;
+  font-size: 24px;
+  font-weight: 300;
+}
+h2 {
+  color: #666060;
+  background-color: #fbf5f5;
+  border-bottom: 1px solid #ebe5e5;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  padding: 24px 0 23px;
+  text-align: center;
+}
+h3 {
+  color: #666;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+#generator {
+  background-color: #fff;
+  border: 1px solid #dad5d0;
+  margin: 48px auto;
+  overflow: hidden;
+  width: 940px;
+}
+#options,
+#preview {
+  float: left;
+  margin: 0 20px 24px 0;
+  padding: 24px 48px;
+  width: 364px;
+}
+#preview {
+  border-left: 1px solid #eee;
+  margin-right: 0;
+  width: 363px;
+}
+#preview iframe {
+  display: block;
+  margin-bottom: 24px;
+}
+label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.checkbox label {
+  display: inline;
+  margin-left: 10px;
+  width: auto;
+}
+.checkbox input {
+  width: auto;
+}
+input,
+textarea {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-family: "source-sans-pro", "Helverica Neue", "Arial", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 2px 4px;
+}
+input {
+  color: #444;
+  font-size: 24px;
+  width: 352px;
+}
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+textarea {
+  background-color: #faf4f4;
+  color: #666;
+  font-family: monospace;
+  font-size: 11px;
+  width: 354px;
+}
+form {
+  margin-bottom: 24px;
+}
+form li {
+  margin-bottom: 12px;
+}
+#open-source {
+  font-size: 21px;
+  margin: 0 auto 48px;
+  text-align: center;
+  width: 420px;
+}
+footer {
+  color: #777;
+  font-size: 12px;
+  text-align: center;
+}
