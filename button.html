@@ -77,7 +77,7 @@
     </style>
 </head>
 <body>
-    <div id="the-button"><a id="follow" href="http://forrst.com/people/PawelDecowski">Follow <span id="who"></a> <a id="counter" href="http://forrst.com/people/PawelDecowski/followers"></a></div>
+    <div id="the-button"><a id="follow" target="_top">Follow <span id="who"></a> <a id="counter" target="_top"></a></div>
     <script>
         // if (window.self == window.top) {
         //     window.location.replace('/');
@@ -157,10 +157,13 @@
         {
             if (request.params.get('count') !== 'false') {
                 document.getElementById('counter').innerHTML = parseInt(result.resp.followers).human_readable() + ' followers';
+                document.getElementById('counter').href = 'http://forrst.com/people/' + result.resp.username + '/followers/';
             } else {
                 document.getElementById('counter').remove()
             }
+
             document.getElementById('who').innerHTML = '@' + result.resp.username;
+            document.getElementById('follow').href = 'http://forrst.com/people/' + result.resp.username;
             document.getElementById('the-button').style.visibility = 'visible';
         }
 
